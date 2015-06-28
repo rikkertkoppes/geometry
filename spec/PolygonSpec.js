@@ -21,7 +21,7 @@ describe('Polygon',function() {
         it('should return intersectionparams',function() {
             var p = ucw.getIntersectionParams();
             expect(p.name).toBe('Polygon');
-            expect(p.params).toBe(ucw.points);
+            expect(p.params).toEqual([ucw.points]);
         });
     });
 
