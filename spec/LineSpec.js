@@ -9,6 +9,11 @@ describe('Line',function() {
             expect(l.p1).toBe(p1);
             expect(l.p2).toBe(p2);
         });
+        it('should be intialized to corner points 4 arguments',function() {
+            var l1 = new Line(2,3,7,9);
+            expect(l1.p1.eq(new Point2D(2,3))).toBe(true);
+            expect(l1.p2.eq(new Point2D(7,9))).toBe(true);
+        });
     });
 
     describe('cut',function() {

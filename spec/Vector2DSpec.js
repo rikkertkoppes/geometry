@@ -52,16 +52,6 @@ describe('Vector2D',function() {
         });
     });
 
-    describe('unitEquals',function() {
-        it('should convert the vector to a unit vector of length 1',function() {
-            var v1 = new Vector2D(4,0);
-            var v2 = v1.unitEquals();
-            expect(v2.x).toBe(1);
-            expect(v2.y).toBe(0);
-            expect(v2).toBe(v1);
-        })
-    })
-
     describe('add',function() {
         it('should add two points in euclidean space',function() {
             var v1 = new Vector2D(4,7);
@@ -70,17 +60,6 @@ describe('Vector2D',function() {
             expect(v3.x).toBe(7);
             expect(v3.y).toBe(12);
             expect(v3).not.toBe(v1);
-        });
-    });
-
-    describe('addEquals',function() {
-        it('should add two points in euclidean space',function() {
-            var v1 = new Vector2D(4,7);
-            var v2 = new Vector2D(3,5);
-            var v3 = v1.addEquals(v2);
-            expect(v3.x).toBe(7);
-            expect(v3.y).toBe(12);
-            expect(v3).toBe(v1);
         });
     });
 
@@ -95,17 +74,6 @@ describe('Vector2D',function() {
         });
     });
 
-    describe('subtractEquals',function() {
-        it('should subtract two points in euclidean space',function() {
-            var v1 = new Vector2D(4,7);
-            var v2 = new Vector2D(3,5);
-            var v3 = v1.subtractEquals(v2);
-            expect(v3.x).toBe(1);
-            expect(v3.y).toBe(2);
-            expect(v3).toBe(v1);
-        });
-    });
-
     describe('multiply',function() {
         it('should multiply two points in euclidean space',function() {
             var v1 = new Vector2D(4,7);
@@ -116,16 +84,6 @@ describe('Vector2D',function() {
         });
     });
 
-    describe('multiplyEquals',function() {
-        it('should multiply two points in euclidean space',function() {
-            var v1 = new Vector2D(4,7);
-            var v2 = v1.multiplyEquals(2);
-            expect(v2.x).toBe(8);
-            expect(v2.y).toBe(14);
-            expect(v2).toBe(v1);
-        });
-    });
-
     describe('divide',function() {
         it('should divide two points in euclidean space',function() {
             var v1 = new Vector2D(4,7);
@@ -133,16 +91,6 @@ describe('Vector2D',function() {
             expect(v2.x).toBe(2);
             expect(v2.y).toBe(3.5);
             expect(v2).not.toBe(v1);
-        });
-    });
-
-    describe('divideEquals',function() {
-        it('should divide two points in euclidean space',function() {
-            var v1 = new Vector2D(4,7);
-            var v2 = v1.divideEquals(2);
-            expect(v2.x).toBe(2);
-            expect(v2.y).toBe(3.5);
-            expect(v2).toBe(v1);
         });
     });
 });

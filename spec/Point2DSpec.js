@@ -7,6 +7,22 @@ describe('Point2D',function() {
         });
     });
 
+    describe('equality',function() {
+        it('should be the same reference if two points are the same',function() {
+            var p1 = new Point2D(3,5);
+            var p2 = new Point2D(3,5);
+            expect(p1).toBe(p2);
+        });
+    });
+
+    describe('setting x and y',function() {
+        it('should not be allowed to change x and y',function() {
+            var p1 = new Point2D(3,5);
+            p1.x = 4;
+            expect(p1.x).toBe(3);
+        })
+    });
+
     describe('add',function() {
         it('should add two points in euclidean space',function() {
             var p1 = new Point2D(4,7);
@@ -15,37 +31,6 @@ describe('Point2D',function() {
             expect(p3.x).toBe(7);
             expect(p3.y).toBe(12);
             expect(p3).not.toBe(p1);
-        });
-    });
-
-    describe('addEquals',function() {
-        it('should add two points in euclidean space',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = new Point2D(3,5);
-            var p3 = p1.addEquals(p2);
-            expect(p3.x).toBe(7);
-            expect(p3.y).toBe(12);
-            expect(p3).toBe(p1);
-        });
-    });
-
-    describe('scalarAdd',function() {
-        it('should add the same scalar to both coordinates',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = p1.scalarAdd(4);
-            expect(p2.x).toBe(8);
-            expect(p2.y).toBe(11);
-            expect(p2).not.toBe(p1);
-        });
-    });
-
-    describe('scalarAddEquals',function() {
-        it('should add the same scalar to both coordinates',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = p1.scalarAddEquals(4);
-            expect(p2.x).toBe(8);
-            expect(p2.y).toBe(11);
-            expect(p2).toBe(p1);
         });
     });
 
@@ -60,37 +45,6 @@ describe('Point2D',function() {
         });
     });
 
-    describe('subtractEquals',function() {
-        it('should subtract two points in euclidean space',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = new Point2D(3,5);
-            var p3 = p1.subtractEquals(p2);
-            expect(p3.x).toBe(1);
-            expect(p3.y).toBe(2);
-            expect(p3).toBe(p1);
-        });
-    });
-
-    describe('scalarSubtract',function() {
-        it('should subtract the same scalar to both coordinates',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = p1.scalarSubtract(4);
-            expect(p2.x).toBe(0);
-            expect(p2.y).toBe(3);
-            expect(p2).not.toBe(p1);
-        });
-    });
-
-    describe('scalarSubtractEquals',function() {
-        it('should subtract the same scalar to both coordinates',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = p1.scalarSubtractEquals(4);
-            expect(p2.x).toBe(0);
-            expect(p2.y).toBe(3);
-            expect(p2).toBe(p1);
-        });
-    });
-
     describe('multiply',function() {
         it('should multiply two points in euclidean space',function() {
             var p1 = new Point2D(4,7);
@@ -101,16 +55,6 @@ describe('Point2D',function() {
         });
     });
 
-    describe('multiplyEquals',function() {
-        it('should multiply two points in euclidean space',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = p1.multiplyEquals(2);
-            expect(p2.x).toBe(8);
-            expect(p2.y).toBe(14);
-            expect(p2).toBe(p1);
-        });
-    });
-
     describe('divide',function() {
         it('should divide two points in euclidean space',function() {
             var p1 = new Point2D(4,7);
@@ -118,16 +62,6 @@ describe('Point2D',function() {
             expect(p2.x).toBe(2);
             expect(p2.y).toBe(3.5);
             expect(p2).not.toBe(p1);
-        });
-    });
-
-    describe('divideEquals',function() {
-        it('should divide two points in euclidean space',function() {
-            var p1 = new Point2D(4,7);
-            var p2 = p1.divideEquals(2);
-            expect(p2.x).toBe(2);
-            expect(p2.y).toBe(3.5);
-            expect(p2).toBe(p1);
         });
     });
 
@@ -251,37 +185,4 @@ describe('Point2D',function() {
             expect(p1.toString()).toBe('3,4');
         });
     });
-
-    describe('setXY',function() {
-        it('should adjust the coordinates',function() {
-            var p1 = new Point2D(3,4);
-            p1.setXY(6,7);
-            expect(p1.x).toBe(6);
-            expect(p1.y).toBe(7);
-        });
-    });
-
-    describe('setFromPoint',function() {
-        it('should copy the point coordinates to itseld',function() {
-            var p1 = new Point2D(3,4);
-            var p2 = new Point2D(6,7);
-            p1.setFromPoint(p2);
-            expect(p1.x).toBe(6);
-            expect(p1.y).toBe(7);
-            expect(p1).not.toBe(p2);
-        });
-    });
-
-    describe('swap',function() {
-        it('should swap the coordinates of two points',function() {
-            var p1 = new Point2D(3,4);
-            var p2 = new Point2D(6,7);
-            p1.swap(p2);
-            expect(p1.x).toBe(6);
-            expect(p1.y).toBe(7);
-            expect(p2.x).toBe(3);
-            expect(p2.y).toBe(4);
-            expect(p1).not.toBe(p2);
-        })
-    })
 });
